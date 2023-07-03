@@ -48,7 +48,6 @@ void loop() {
   Serial.println(boton);
   Serial.println("----------------");
   delay(100);
-  Serial.flush();
   if (ang == 0 && mappedX == 1 && mappedY == 0) {
     carroDetenido();
   } else if (ang == 0 && mappedX == 100 && mappedY == 0) {
