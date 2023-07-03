@@ -8,7 +8,7 @@ const byte direccion_receptor[6] = "00001"; // Dirección del receptor
 
 //Estructura de datos: 4 enteros
 struct Datos {
-  int dato1;//dato 1 para llantas
+  int dato1;
   int dato2;
   int dato3;
   int dato4;
