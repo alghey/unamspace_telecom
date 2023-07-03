@@ -48,14 +48,20 @@ void loop() {
   Serial.println(boton);
   Serial.println("----------------");
   delay(1000);
-  if(ang=180){
-    carroGiraIzquierda();
+  if(ang=0 and mappedX=0 and mappedY=0){
+    carroDetenido();
     }
-  if(ang=0){
+  if(ang=0 and mappedX=100 and mappedY=0){
     carroGiraDerecha();
     }
-  if(ang<180){
+  if(ang=0 and mappedX=0 and mappedY=100){
+    carroGiraIzquierda();
+    }
+  if(ang>0 and ang<180){
     carroAvanzaAdelante();
+    }
+  if(ang<0){
+    carroAvanzaAtras();
     }
    
 }
