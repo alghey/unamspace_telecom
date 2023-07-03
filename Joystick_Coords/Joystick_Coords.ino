@@ -47,22 +47,19 @@ void loop() {
   Serial.print("El estado del botón es: ");
   Serial.println(boton);
   Serial.println("----------------");
-  delay(1000);
-  if(ang==0 and mappedX==1 and mappedY==0){
+  delay(100);
+  Serial.flush();
+  if (ang == 0 && mappedX == 1 && mappedY == 0) {
     carroDetenido();
-    }
-  if(ang==0 and mappedX==100 and mappedY==0){
+  } else if (ang == 0 && mappedX == 100 && mappedY == 0) {
     carroGiraDerecha();
-    }
-  if(ang==0 and mappedX==-100 and mappedY==0){
+  } else if (ang == 0 && mappedX == -100 && mappedY == 0) {
     carroGiraIzquierda();
-    }
-  if(ang>0 and ang<180){
+  } else if (ang > 0 && ang < 180) {
     carroAvanzaAdelante();
-    }
-  if(ang<0){
+  } else if (ang < 0) {
     carroAvanzaAtras();
-    }
+  }
    
 }
 
