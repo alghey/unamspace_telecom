@@ -1,8 +1,8 @@
 const int joystickPinX = A0; // Pin analógico del eje X del joystick
 const int joystickPinY = A1; // Pin analógico del eje Y del joystick
 const int SW = 2; // Pin digital del SW
-int valorX = 0; // Variable para almacenar el valor de X
-int valorY = 0; // Variable para almacenar el valor de Y
+float valorX = 0; // Variable para almacenar el valor de X
+float valorY = 0; // Variable para almacenar el valor de Y
 bool boton = false; // Variable para validar el estado del botón
 //Variables para el puente H:
 //variables Motores
@@ -29,10 +29,11 @@ void loop() {
   valorY = analogRead(joystickPinY); // Lee el valor del eje Y (0-1023)
   boton = digitalRead(SW); // Lee el estados del botón: activado o no activado
   // Mapea los valores leídos a un rango de -100 a 100 para acomodarlos en el intervalo [-100, 100]
-  int mappedX = map(valorX, 0, 1023, -100, 100);
-  int mappedY = map(valorY, 0, 1023, 100, -100);
+  float mappedX = map(valorX, 0, 1023, -100, 100);
+  float mappedY = map(valorY, 0, 1023, 100, -100);
   // Calcula el ángulo utilizando la función atan2()
   float ang = atan2(mappedY, mappedX) * (180.0 / PI); // Convierte el ángulo a grados
+  float magnitud = sqrt(pow(mappedY,2)+pow(mappedX,2));
   // Envía las coordenadas del joystick en el formato [a, b]
   Serial.print("La úbicación del Joystick es: [");
   Serial.print(mappedX);
@@ -41,12 +42,24 @@ void loop() {
   Serial.println("]");
   Serial.print("El ánngulo del Joystick es: ");
   Serial.println(ang);
+  Serial.print("La magnitud del vector es: ");
+  Serial.println(magnitud);
   Serial.print("El estado del botón es: ");
   Serial.println(boton);
   Serial.println("----------------");
-  delay(1000);
-  
-  
+  delay(100);
+  if (ang == 0 && mappedX == 1 && mappedY == 0) {
+    carroDetenido();
+  } else if (ang == 0 && mappedX == 100 && mappedY == 0) {
+    carroGiraDerecha();
+  } else if (ang == 0 && mappedX == -100 && mappedY == 0) {
+    carroGiraIzquierda();
+  } else if (ang > 0 && ang < 180) {
+    carroAvanzaAdelante();
+  } else if (ang < 0) {
+    carroAvanzaAtras();
+  }
+   
 }
 
 //FUNCIONES
