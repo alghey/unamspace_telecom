@@ -35,6 +35,14 @@ void loop() {
   float ang = atan2(mappedY, mappedX) * (180.0 / PI); // Convierte el ángulo a grados
   float magnitud = sqrt(pow(mappedY,2)+pow(mappedX,2));
   // Envía las coordenadas del joystick en el formato [a, b]
+
+  //---Estas lineas sirven para limpiar el monitor. Sólo funcionan con putty-----------------------------------------
+  Serial.write(27);       // ESC command
+  Serial.print("[2J");    // clear screen command
+  Serial.write(27);
+  Serial.print("[H");     // cursor to home command
+  //-----------------------------------------------------------------------------------------------------------------
+  
   Serial.print("La úbicación del Joystick es: [");
   Serial.print(mappedX);
   Serial.print(",");
