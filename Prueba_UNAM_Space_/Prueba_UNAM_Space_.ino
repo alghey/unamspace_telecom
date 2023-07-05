@@ -65,6 +65,9 @@ void loop() {
       }
     }
   }
+  else{
+    Serial.println("ERROR");
+  }
 }
 
 
