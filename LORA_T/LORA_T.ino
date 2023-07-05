@@ -11,6 +11,18 @@ struct telemetria {
   float dato5;
   float dato6;
   float dato7;
+  float dato8;
+  float dato9;
+  float dato10;
+  float dato11;
+  float dato12;
+  float dato13;
+  float dato14;
+  float dato15;
+  byte dato16;
+  byte dato17;
+  byte dato18;
+  byte dato19;
 };
 
 
@@ -33,8 +45,19 @@ void loop() {
   tele.dato4 = 3.25;
   tele.dato5 = -0.25;
   tele.dato6 = 25.36;
-  tele.dato7 = 25.365;
-
+  tele.dato7 = 25.3654;
+  tele.dato8 = -0.35;
+  tele.dato9 = 2.54;
+  tele.dato10 = -9.58;
+  tele.dato11 = 0.98;
+  tele.dato12 = -0.25;
+  tele.dato13 = 6.68;
+  tele.dato14 = 4.59;
+  tele.dato15 = -4.59;
+  tele.dato16 = 1;
+  tele.dato17 = 4;
+  tele.dato18 = 9;
+  tele.dato19 = 10;
   //if (Serial.available()) {
   Serial.println(i);
   i++;
