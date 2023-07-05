@@ -17,7 +17,7 @@ int pinVelocidadDerecha     = 6; //pin PWM
 int pinVelocidadIzquierda   = 5; //pin PWM
 int velocidad = 125;//velocidad motores(0-255)
 
-
+  
  
 LoRa_E220 e220ttl(2, 3); // Arduino RX --> e220 TX - Arduino TX --> e220 RX
  
@@ -36,34 +36,7 @@ void setup() {
 }
  
 void loop() {
-  /**  // If something available
-  if (e220ttl.available()>1) {
-      // read the String message
-    ResponseContainer rc = e220ttl.receiveMessage();
-    // Is something goes wrong print error
-    if (rc.status.code!=1){
-        rc.status.getResponseDescription();
-    }else{
-        // Print the data received
-        Serial.println(rc.data);
-        dato = rc.data
-        if(dato == 'W'){
-          carroAvanzaAdelante();
-          }
-        if(dato=='S') {
-          carroAvanzaAtras();
-        } 
-        if(dato=='A'){ 
-            carroGiraIzquierda();
-        }  
-        if(dato=='D'){
-            carroGiraDerecha();
-        if(dato=='Q')
-            pruebaMotores()
-        if(dato=='E')
-            carroDetenido();
-          }
-  }**/
+
   if (Serial.available()) {
       String input = Serial.readString();
       e220ttl.sendMessage(input);
