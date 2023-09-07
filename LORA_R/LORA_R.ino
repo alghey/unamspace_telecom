@@ -35,7 +35,7 @@ struct Telemetria{
 
 void setup() {
   Serial.begin(9600);
-  delay(500);
+  //delay(500);
 
   Serial.println("Hi, I'm the receiver!");
 
@@ -100,7 +100,7 @@ void loop() {
     }
   }else{
     //Serial.println("Ningún LORA disponible");
-    delay(2000);
+    //delay(1000);
   }
 
 }

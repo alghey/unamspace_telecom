@@ -37,10 +37,12 @@ void loop() {
   // Envía las coordenadas del joystick en el formato [a, b]
 
   //---Estas lineas sirven para limpiar el monitor. Sólo funcionan con putty-----------------------------------------
+  /*
   Serial.write(27);       // ESC command
   Serial.print("[2J");    // clear screen command
   Serial.write(27);
   Serial.print("[H");     // cursor to home command
+  */
   //-----------------------------------------------------------------------------------------------------------------
   
   Serial.print("La úbicación del Joystick es: [");
@@ -55,12 +57,12 @@ void loop() {
   Serial.print("El estado del botón es: ");
   Serial.println(boton);
   Serial.println("----------------");
-  delay(100);
+  //delay(1000);
   if (ang == 0 && mappedX == 1 && mappedY == 0) {
     carroDetenido();
   } else if (ang == 0 && mappedX == 100 && mappedY == 0) {
     carroGiraDerecha();
-  } else if (ang == 0 && mappedX == -100 && mappedY == 0) {
+  } else if (ang > 0 && mappedX == -100 && mappedY == 0) {
     carroGiraIzquierda();
   } else if (ang > 0 && ang < 180) {
     carroAvanzaAdelante();
@@ -77,7 +79,7 @@ void carroAvanzaAdelante(){
     digitalWrite(MotorIzquierdoAdelante,HIGH);
     digitalWrite(MotorDerechoAtras,LOW);
     digitalWrite(MotorIzquierdoAtras,LOW);
-    delay(1000);
+    //delay(1000);
   }
   
 void carroAvanzaAtras(){
@@ -86,7 +88,7 @@ void carroAvanzaAtras(){
     digitalWrite(MotorIzquierdoAdelante,LOW);
     digitalWrite(MotorDerechoAtras,HIGH);
     digitalWrite(MotorIzquierdoAtras,HIGH);
-    delay(1000);
+    //delay(1000);
   }
   
 void carroGiraDerecha(){
@@ -120,7 +122,7 @@ void pruebaMotores(){
     digitalWrite(MotorIzquierdoAdelante,LOW);
     digitalWrite(MotorDerechoAtras,HIGH);
     digitalWrite(MotorIzquierdoAtras,LOW);
-    delay(200);
+    //delay(200);
     velocidad = velocidad+1;
     if (velocidad == 250){
       velocidad = 0;
