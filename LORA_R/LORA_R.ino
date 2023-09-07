@@ -20,17 +20,7 @@ struct Telemetria{
   float dato5;
   float dato6;
   float dato7;
-  float dato8;
-  float dato9;
-  float dato10;
-  float dato11;
-  float dato12;
-  float dato13;
-  float dato14;
-  float dato15;
-  byte dato16;
-  byte dato17;
-  byte dato18;
+  byte dato8;
 }; 
 
 void setup() {
@@ -75,26 +65,6 @@ void loop() {
       Serial.println(datos.dato7);
       Serial.print("Dato 8: ");
       Serial.println(datos.dato8);
-      Serial.print("Dato 9: ");
-      Serial.println(datos.dato9);
-      Serial.print("Dato 10: ");
-      Serial.println(datos.dato10);
-      Serial.print("Dato 11: ");
-      Serial.println(datos.dato11);
-      Serial.print("Dato 12: ");
-      Serial.println(datos.dato12);
-      Serial.print("Dato 13: ");
-      Serial.println(datos.dato13);
-      Serial.print("Dato 14: ");
-      Serial.println(datos.dato14);
-      Serial.print("Dato 15: ");
-      Serial.println(datos.dato15);
-      Serial.print("Dato 16: ");
-      Serial.println(datos.dato16);
-      Serial.print("Dato 17: ");
-      Serial.println(datos.dato17);
-      Serial.print("Dato 18: ");
-      Serial.println(datos.dato18);
     
       rsc.close();
     }
